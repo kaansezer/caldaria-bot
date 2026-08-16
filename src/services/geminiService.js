@@ -2,7 +2,9 @@ const { GoogleGenAI } = require('@google/genai');
 const db = require('../utils/database');
 const logger = require('../utils/logger');
 
-const MODEL = 'gemini-2.5-flash';
+// Varsayilan model. .env'deki GEMINI_MODEL ile degistirilebilir.
+// Not: gemini-2.5-flash yeni kullanicilara verilmiyor; daha yeni bir model kullanin.
+const MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash-8b';
 const MAX_CONTEXT_MESSAGES = 10; // Son X mesaj baglam olarak saklanir
 const MAX_RESPONSE_LENGTH = 2000; // Discord mesaj limiti
 const MAX_PARTS_LENGTH = 2000;
