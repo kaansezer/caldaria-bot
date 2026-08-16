@@ -1,0 +1,20 @@
+{
+  "warn.success": "✅ User warned.",
+  "warn.not_logged": "⚠️ Warning issued but no mod-log channel is set, so the log could not be sent.",
+  "ban.success": "✅ User banned.",
+  "kick.success": "✅ User kicked.",
+  "timeout.success": "✅ User timed out.",
+  "unban.success": "✅ User unbanned.",
+  "lock.success": "🔒 This channel is locked.",
+  "lock.already": "ℹ️ This channel is already locked.",
+  "unlock.success": "🔓 This channel is unlocked.",
+  "unlock.already": "ℹ️ This channel is already open.",
+  "slowmode.success": "🐢 Slowmode set.",
+  "slowmode.off": "🐢 Slowmode disabled.",
+  "purge.success": "✅ Messages deleted.",
+  "nick.success": "✅ User's nickname changed.",
+  "role.added": "✅ Role added.",
+  "role.removed": "✅ Role removed.",
+  "no_permission": "❌ You do not have permission to use this command.",
+  "error.generic": "An error occurred while running this command."
+}

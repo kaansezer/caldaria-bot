@@ -1,0 +1,20 @@
+{
+  "warn.success": "✅ Kullanıcı uyarıldı.",
+  "warn.not_logged": "⚠️ Warn verildi ancak mod-log kanalı ayarlanmadığı için log gönderilemedi.",
+  "ban.success": "✅ Kullanıcı sunucudan yasaklandı.",
+  "kick.success": "✅ Kullanıcı sunucudan atıldı.",
+  "timeout.success": "✅ Kullanıcıya timeout uygulandı.",
+  "unban.success": "✅ Kullanıcının banı kaldırıldı.",
+  "lock.success": "🔒 Bu kanal kilitlendi.",
+  "lock.already": "ℹ️ Bu kanal zaten kilitli.",
+  "unlock.success": "🔓 Bu kanalın kilidi açıldı.",
+  "unlock.already": "ℹ️ Bu kanal zaten açık.",
+  "slowmode.success": "🐢 Slowmode ayarlandı.",
+  "slowmode.off": "🐢 Slowmode kapatıldı.",
+  "purge.success": "✅ Mesajlar silindi.",
+  "nick.success": "✅ Kullanıcının nickname'i değiştirildi.",
+  "role.added": "✅ Rol verildi.",
+  "role.removed": "✅ Rol kaldırıldı.",
+  "no_permission": "❌ Bu komutu kullanmak için yetkiniz yok.",
+  "error.generic": "Bu komutu çalıştırırken bir hata oluştu."
+}
