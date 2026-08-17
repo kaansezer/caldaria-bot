@@ -1,15 +1,20 @@
 const { execFile } = require('child_process');
 
-// Bannerlord Coop sunucusunu yonetmek icin root yetkisiyle calistirilan blctl
-// script'ine sudo uzerinden erisir. Bot caldaria kullanicisiyla calistigi icin
-// tum islemler bu tek script yoluyla yapilir (sudoers: NOPASSWD tek komut).
+// Bannerlord Coop sunucusunu yonetmek icin blctl script'ini calistirir.
+// Bot root olarak calisiyorsa sudo kullanilmaz; baska bir kullaniciyla
+// calisiyorsa sudo uzerinden erisir (sudoers: NOPASSWD tek komut).
 const CTL_PATH = process.env.SERVER_CTL || '/usr/local/bin/blctl';
+
+const IS_ROOT = typeof process.getuid === 'function' && process.getuid() === 0;
 
 const TIMEOUT_MS = 60000;
 
 function run(args, timeoutMs = TIMEOUT_MS) {
   return new Promise((resolve) => {
-    execFile('sudo', [CTL_PATH, ...args], { timeout: timeoutMs }, (error, stdout, stderr) => {
+    const command = IS_ROOT ? CTL_PATH : 'sudo';
+    const commandArgs = IS_ROOT ? args : [CTL_PATH, ...args];
+
+    execFile(command, commandArgs, { timeout: timeoutMs }, (error, stdout, stderr) => {
       const output = String(stdout || '').trim();
       const errorText = String(stderr || '').trim();
 
