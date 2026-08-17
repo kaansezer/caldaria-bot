@@ -1,6 +1,7 @@
 const { Events } = require('discord.js');
 const logger = require('../utils/logger');
 const sunucukur = require('../commands/sunucukur');
+const serverCommand = require('../commands/server/server');
 const { hasModerationPermission } = require('../utils/moderationPermissions');
 const { handleInteractionOrButton } = require('../services/ticketManager');
 
@@ -69,6 +70,25 @@ module.exports = {
         await sunucukur.handleButton(interaction);
       } catch (error) {
         logger.error('Sunucukur buton hatasi:', error);
+
+        const payload = {
+          content: 'Islem sirasinda bir hata olustu.',
+          ephemeral: true,
+        };
+
+        if (interaction.replied || interaction.deferred) {
+          await interaction.followUp(payload);
+        } else if (interaction.isRepliable()) {
+          await interaction.reply(payload);
+        }
+      }
+    }
+
+    if (interaction.isButton() && interaction.customId.startsWith('server:')) {
+      try {
+        await serverCommand.handleButton(interaction);
+      } catch (error) {
+        logger.error('Server buton hatasi:', error);
 
         const payload = {
           content: 'Islem sirasinda bir hata olustu.',

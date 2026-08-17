@@ -21,10 +21,11 @@ const ACTION_PERMISSIONS = {
   modstats: null,
   modlog: null,
   sunucukur: PermissionFlagsBits.ManageGuild,
+  server: PermissionFlagsBits.ManageGuild,
 };
 
 // Sadece Owner seviyesinin kullanabildigi aksiyonlar.
-const OWNER_ONLY_ACTIONS = new Set(['sunucukur', 'modlog']);
+const OWNER_ONLY_ACTIONS = new Set(['sunucukur', 'modlog', 'server']);
 
 // Uyenin yetki seviyesini dondurur: 'owner' | 'admin' | null
 function getRoleTier(member) {
